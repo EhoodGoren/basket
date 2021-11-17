@@ -1,0 +1,30 @@
+#intro {
+    width: 100vw;
+    height: 40vh;
+    background-color: rgba(0,0,0,0.85);
+}
+
+#content {
+    height: 20vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#Groceries {
+    grid-area: 2 / 2 / 3 / 3;   
+}
+
+#Basket {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.lists {
+    font-size: 120%;
+}
+
+.uLists {
+    list-style-type: none;
+}
