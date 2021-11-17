@@ -5,8 +5,13 @@ export default class Content extends React.Component {
         super(props);
         this.state = {basketContent: []}
     }
-    updateBasket = (item) => {
+    addToBasket = (item) => {
         this.setState(prevState => ({basketContent: [...prevState.basketContent, item] }) );
+    }
+    removeFromBasket = (item) => {
+        this.setState(prevState => ({basketContent: prevState.basketContent.filter(listItem => {
+            return listItem !== item;
+        })}))
     }
 
     render() {
@@ -14,8 +19,11 @@ export default class Content extends React.Component {
         return (
             <div id="content">
                 {/* search box */}
-                <List title='Groceries' items={groceries} sign='+' clickFunc={this.updateBasket} />
-                <List title='Basket' items={this.state.basketContent} sign='-' />
+                <List title='Groceries' items={groceries}
+                    sign='+' clickFunc={this.addToBasket} />
+                    
+                <List title='Basket' items={this.state.basketContent}
+                    sign='-' clickFunc={this.removeFromBasket} />
             </div>
         )
     }
