@@ -14,9 +14,12 @@ export default class ListItem extends React.Component {
     revertSignColor = () => {
         this.setState({ signColor: 'white' });
     }
+    updateBasket = () => {
+        this.props.clickFunc(this.props.content)
+    }
     render() {
         return (
-            <li data-index={this.props.Itemindex}
+            <li data-index={this.props.Itemindex} onClick = {this.updateBasket}
                 onMouseEnter={this.changeSignColor} onMouseLeave={this.revertSignColor}>
                 <ActionSign sign={this.props.sign} color={this.state.signColor} />
                 <span>{this.props.content}</span>

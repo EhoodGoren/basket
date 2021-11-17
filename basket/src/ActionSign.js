@@ -12,7 +12,7 @@ export default class ActionSign extends React.Component {
     }
     render() {
         return (
-            <span style={{backgroundColor: this.state.color}}>{`${this.props.sign} `}</span>
+            <span style={{backgroundColor: this.state.color}}>{this.props.sign}</span>
         )
     }
 }
