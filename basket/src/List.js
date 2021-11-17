@@ -5,17 +5,16 @@ export default class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: props.title || 'List',
-            items: props.items || []
+            items: this.props.items || [],
         }
     }
     render() {
         return (
-            <div id={this.state.title} className='lists'>
-                <div><strong>{this.state.title}</strong></div>
+            <div id={this.props.title} className='lists'>
+                <div><strong>{this.props.title}</strong></div>
                 <ul className='uLists'>
                     {this.state.items.map((item, index) =>
-                        <ListItem itemIndex={index} content={item} />
+                        <ListItem itemIndex={index} content={item} sign={this.props.sign} />
                     )}
                 </ul>
             </div>
