@@ -32,10 +32,10 @@ export default class GroceriesItem extends React.Component {
     }
     render() {
         return (
-            <li onClick={this.updateBasket} onMouseEnter={this.changeSignColor} onMouseLeave={this.revertSignColor}>
-                <ActionSign sign='-' color={this.state.signColor} />
-                <span>{this.state.count}</span>
-                <span>{this.checkStrike()}</span>
+            <li onClick={this.updateBasket} onMouseEnter={this.changeSignColor} onMouseLeave={this.revertSignColor} className="listItems">
+                <ActionSign sign='-' color={this.state.signColor}/>
+                <span>{this.state.count} </span>
+                <span> {this.checkStrike()}</span>
             </li>
         )
     }

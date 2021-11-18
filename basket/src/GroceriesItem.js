@@ -20,7 +20,7 @@ export default class GroceriesItem extends React.Component {
     }
     render() {
         return (
-            <li onClick={this.updateBasket} onMouseEnter={this.changeSignColor} onMouseLeave={this.revertSignColor}>
+            <li onClick={this.updateBasket} onMouseEnter={this.changeSignColor} onMouseLeave={this.revertSignColor} className="listItems">
                 <ActionSign sign='+' color={this.state.signColor} />
                 <span>{this.props.content}</span>
             </li>

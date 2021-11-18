@@ -13,14 +13,20 @@ export default class BasketList extends React.Component {
             this.setState({items: this.props.items});
         }
     }
+    emptyBasket = () => {
+        console.log('?');
+        this.setState({items: []});
+    }
     render() {
         return (
             <div id='basket' className='lists'>
-                <div><strong>Basket</strong></div>
+                <span><strong>🛒 Basket</strong></span>
+                <button id='trash' onClick={this.emptyBasket}>🗑️</button>
                 <ul className='uLists'>
                     {this.props.items.map(item => 
                         <BasketItem content={item} clickFunc={this.props.clickFunc} />)}
                 </ul>
+
             </div>
         )
     }

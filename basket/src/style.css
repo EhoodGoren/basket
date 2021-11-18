@@ -28,3 +28,13 @@
 .uLists {
     list-style-type: none;
 }
+.listItems:nth-child(odd) {
+    background-color: #F8F1DE;
+}
+.listItems:nth-child(even) {
+    background-color: #F8E9C1;
+}
+
+#trash {
+    margin-left: 5%;
+}
