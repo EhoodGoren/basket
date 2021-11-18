@@ -15,7 +15,7 @@ export default class Content extends React.Component {
             const prevBasket = [...this.state.basketContent];
             const updatedBasket = prevBasket.map(basketItem => {
                 return basketItem.item === item
-                ? {item, count: basketItem.count + 1 }
+                ? {item, count: basketItem.count + 1 , strike: basketItem.strike}
                 : basketItem;
             })
             this.setState({basketContent: updatedBasket});
@@ -25,9 +25,13 @@ export default class Content extends React.Component {
         }
     }
     removeFromBasket = (item) => {
-        this.setState(prevState => ({basketContent: prevState.basketContent.filter(listItem => {
-            return listItem !== item;
-        })}))
+        const prevBasket = [...this.state.basketContent];
+        const updatedBasket = prevBasket.map(basketItem => {
+            return basketItem.item === item
+            ? {item, count: basketItem.count, strike: true}
+            : basketItem;
+        })
+        this.setState({basketContent: updatedBasket});
     }
 
     render() {
