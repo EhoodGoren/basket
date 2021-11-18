@@ -18,9 +18,10 @@ export default class List extends React.Component {
             <div id={this.props.title} className='lists'>
                 <div><strong>{this.props.title}</strong></div>
                 <ul className='uLists'>
-                    {this.state.items.map((item, index) =>
-                        <ListItem itemIndex={index} content={item} sign={this.props.sign} 
-                            clickFunc={this.props.clickFunc} />
+                    {/* {console.log(this.props.count)} */}
+                    {this.state.items.map((item) =>
+                        <ListItem content={item} sign={this.props.sign} 
+                            clickFunc={this.props.clickFunc} countItems={this.props.countItems} count={this.props.count} />
                     )}
                 </ul>
             </div>

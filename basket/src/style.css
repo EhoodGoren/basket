@@ -13,11 +13,11 @@
     grid-row-gap: 0px;
 }
 
-#Groceries {
+#groceries {
     grid-area: 2 / 2 / 3 / 3;   
 }
 
-#Basket {
+#basket {
     grid-area: 2 / 4 / 3 / 5;
 }
 

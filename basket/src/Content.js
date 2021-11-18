@@ -1,12 +1,28 @@
 import React from "react";
-import List from './List'
+// import List from './List';
+import BasketList from './BasketList';
+import GroceriesList from './GroceriesList';
+
 export default class Content extends React.Component {
     constructor(props){
         super(props);
         this.state = {basketContent: []}
     }
     addToBasket = (item) => {
-        this.setState(prevState => ({basketContent: [...prevState.basketContent, item] }) );
+        if(this.state.basketContent.some(basketItem => {
+            return basketItem.item === item
+        })){
+            const prevBasket = [...this.state.basketContent];
+            const updatedBasket = prevBasket.map(basketItem => {
+                return basketItem.item === item
+                ? {item, count: basketItem.count + 1 }
+                : basketItem;
+            })
+            this.setState({basketContent: updatedBasket});
+        }
+        else {
+            this.setState(prevState => ({basketContent: [...prevState.basketContent, {item, count: 1}]}) );
+        }
     }
     removeFromBasket = (item) => {
         this.setState(prevState => ({basketContent: prevState.basketContent.filter(listItem => {
@@ -19,11 +35,8 @@ export default class Content extends React.Component {
         return (
             <div id="content">
                 {/* search box */}
-                <List title='Groceries' items={groceries}
-                    sign='+' clickFunc={this.addToBasket} />
-                    
-                <List title='Basket' items={this.state.basketContent}
-                    sign='-' clickFunc={this.removeFromBasket} />
+                <GroceriesList items={groceries} clickFunc={this.addToBasket}/>
+                <BasketList items={this.state.basketContent} clickFunc={this.removeFromBasket} />
             </div>
         )
     }
